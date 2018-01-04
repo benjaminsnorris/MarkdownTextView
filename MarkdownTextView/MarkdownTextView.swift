@@ -31,7 +31,15 @@ open class MarkdownTextView: UITextView {
         super.init(frame: frame, textContainer: textContainer)
     }
 
-    required public init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        let layoutManager = NSLayoutManager()
+        let containerSize = CGSize(width: frame.size.width, height: CGFloat.greatestFiniteMagnitude)
+        let container = NSTextContainer(size: containerSize)
+        container.widthTracksTextView = true
+        
+        let storage = MarkdownTextStorage()
+        layoutManager.addTextContainer(container)
+        storage.addLayoutManager(layoutManager)
     }
 }
