@@ -11,7 +11,7 @@ import UIKit
 /**
 *  Text view with support for highlighting Markdown syntax.
 */
-public class MarkdownTextView: UITextView {
+open class MarkdownTextView: UITextView {
     /**
     Creates a new instance of the receiver.
     
